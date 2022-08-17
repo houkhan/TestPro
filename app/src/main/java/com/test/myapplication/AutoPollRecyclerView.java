@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.ref.WeakReference;
-
+// 自动轮播 没有使用
 public class AutoPollRecyclerView extends RecyclerView {
     private static final long TIME_AUTO_POLL = 16;
     AutoPollTask autoPollTask;
