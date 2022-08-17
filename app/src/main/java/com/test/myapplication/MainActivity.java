@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -59,17 +58,32 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        recyclerView.postDelayed(() -> scrollToCenter(childViewHalfCount), 100L);
         Log.d(TAG, "childViewHalfCount --" + childViewHalfCount);
+
+        int index = Integer.MAX_VALUE / 2 / 12 * 12;
+
+        recyclerView.postDelayed(() -> recyclerView.scrollToPosition(index), 100L);
+
+        recyclerView.postDelayed(() -> scrollToCenter(index), 200L);
     }
 
     private List<String> mDatas;
 
     private void initData() {
         if (mDatas == null) mDatas = new ArrayList<>();
-        for (int i = 0; i < 55; i++) {
-            mDatas.add("条目" + i);
-        }
+        mDatas.add("子鼠");
+        mDatas.add("丑牛");
+        mDatas.add("寅虎");
+        mDatas.add("卯兔");
+        mDatas.add("辰龙");
+        mDatas.add("巳蛇");
+        mDatas.add("午马");
+        mDatas.add("未羊");
+        mDatas.add("申猴");
+        mDatas.add("酉鸡");
+        mDatas.add("戌狗");
+        mDatas.add("亥猪");
+
     }
 
     private boolean isTouch = false;
@@ -180,17 +194,18 @@ public class MainActivity extends AppCompatActivity {
                 vh.itemView.setVisibility(View.VISIBLE);
                 vh.tv.setText(mDatas.get(index));
             }
-            final int fp = index;
+
             vh.itemView.setOnClickListener(v -> {
-                scrollToCenter(fp);
-                Toast.makeText(MainActivity.this, "点击" + mDatas.get(fp), Toast.LENGTH_SHORT).show();
+                scrollToCenter(position);
+                Toast.makeText(MainActivity.this, "点击" + mDatas.get(index), Toast.LENGTH_SHORT).show();
             });
         }
 
         private int selectPosition = -1;
 
-        public void setSelectPosition(int cposition) {
-            selectPosition = cposition;
+        public void setSelectPosition(int position) {
+            selectPosition = position;
+            Log.i("ccb", "当前选择的下标: " + position);
             notifyDataSetChanged();
         }
 

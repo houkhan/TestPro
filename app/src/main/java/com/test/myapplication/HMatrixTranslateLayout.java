@@ -52,7 +52,7 @@ public class HMatrixTranslateLayout extends LinearLayout {
     private float calculateTranslate(int left, int w) {
         float result;
         int hh = w / 2;
-        result = Math.abs(left - hh);
+        result = -Math.abs(left - hh);
         return (float) (result / 3.14);
     }
 }
