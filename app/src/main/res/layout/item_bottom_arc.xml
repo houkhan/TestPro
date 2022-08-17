@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.test.myapplication.HMatrixTranslateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp"
+    android:layout_height="200dp"
+    android:gravity="center">
+
+
+    <TextView
+        android:background="@color/purple_200"
+        android:id="@+id/tv"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="CC"
+        android:textColor="@color/textback"
+        android:textSize="17sp" />
+
+
+</com.test.myapplication.HMatrixTranslateLayout>
